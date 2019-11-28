@@ -80,9 +80,9 @@ body .container1 .textBody {
   font-size: 1.2em;
   text-align: right;
   max-width: 30%;
-  max-height: 30%;
+  max-height: 35%;
   left: 4.5%;
-  margin-top: 1%;
+  margin-top: 0;
   overflow: scroll;
   -ms-overflow-style: none;
 }
@@ -257,6 +257,21 @@ body .container3 .img2 {
   width: 30%;
   left: 55%;
   bottom: 0;
+}
+
+body .container3 .caption {
+  position: absolute;
+  bottom: 20%;
+  left: 13%;
+}
+
+body .container3 .caption a {
+  text-decoration: none;
+}
+
+body .container3 .caption a:hover {
+  color: white;
+  background-color: #3c4a52;
 }
 
 body .container3 p {

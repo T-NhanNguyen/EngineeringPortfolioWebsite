@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Project_1</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/css/Article-Dual-Column.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="color: #342E37;">
+    <div class="article-dual-column">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1 offset-xl-1">
+                    <div class="intro">
+                        <h1 class="text-center">Autonomous Solar positioning</h1>
+                        <p class="text-center"><span class="by">by</span> <small style="font-family: Lora, serif;font-size: 16px;color: #342E37;padding-left: 5px;">CLARK COLLEGE AEROSPACE CLUB</small></p>
+                        <div class="row">
+                            <div class="col offset-md-1 offset-xl-3"><img class="img-fluid" src="assets/img/cubesat_finalrender.png" height="auto" width="500px" style="width: auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-3 offset-md-1">
+                    <h1>Summary</h1>
+                    <p>This was a collaborative project made by the aerospace team, with special thanks to the Colleagues Mike Haris and Malcolm Anderson, along with Professor Keith Stansbury and Nicoleta Sharp. The project was was entered into the ESRA
+                        IREC Spaceport America Cup 2018 and recieved an award of recognition<br></p>
+                </div>
+                <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0">
+                    <div class="text">
+                        <p>The objective of this project was to develop a&nbsp;firmware that focuses on solar cells and basic engineering principals. We intended to have the system reorient towards the greatest light source, through analog signals processing
+                            of four evenly placed photo resistors on the surface with same direction as the deployed solar panels.<br></p>
+                        <p>The payload team has made several design changes to the CubeSat in the last month. First, the CubeSat’s form factor has been reduced to a 3U; after re-evaluating the power requirements of the payload it was decided to remove the
+                            1U power bank from its end. Secondly, the CubeSat’s virtual mission has been updated. Rather than debris detection, the CubeSat’s mission will be to track and de-orbit specific targets. In theory, the CubeSat would be deployed
+                            from a satellite with a programmed trajectory to intercept a target and push the object toward Earth. During the journey to its target, the payload will use its attitude adjustment systems including reaction wheels and gas
+                            thrusters to maximize its solar charge. To recognize and track its target, the CubeSat will employ the OpenCV API. It will also send image/video data to the ground station, which will be analyzed with the TensorFlow API. The
+                            CubeSat will use the results of this analysis to orient and move itself toward its target. After making contact with the target, the CubeSat will fire its rear thruster and push it toward Earth.<br>To assist the launch vehicle
+                            team, a custom graphical user interface (GUI) program for monitoring the rocket is being developed. The GUI program will receive data through long distance radio from the payload including GPS coordinates, altitude (TeleMetrum
+                            altimeter), and 3D flight trajectory. Data from the Payload’s inertial measurement unit, such as velocity and orientation, will also be sent to aid in monitoring the trajectory of the rocket. The GUI will also display the temperature
+                            (and in some cases amperage) of the payload and avionics bay. The interface is being designed with a focus on simplicity: the goal is for the interface to be easily readable by users while retaining as much information as possible.&nbsp;<br><br><br></p>
+                        <h2>Process</h2>
+                        <p>The project consists of I2C, and SPI communication between a microcontroller, sets of sensors, and a motor controller. Using photo resistors as feedback on the location of a light source relative to the system, the microcontroller
+                            updates the sets of motors to autonomously redirect itself towards that light source.<br></p>
+                        <figure class="figure"><img class="figure-img" src="assets/img/CubeSat_wiring.png">
+                            <figcaption class="figure-caption">Wiring Schematic of the system</figcaption>
+                        </figure>
+                        <p>This project refined my understanding of embedded software concepts and computer science fundamentals through various implementations of schematic design and problem-solving solutions. The project guided me through independent
+                            research and development along with cooperative communication in design decisions.<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

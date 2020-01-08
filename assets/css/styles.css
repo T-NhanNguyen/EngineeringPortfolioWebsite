@@ -1,0 +1,106 @@
+@media (min-width: 1200px) {
+  .row {
+    /*background-color: white;*/
+    padding-top: 100px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 90%;
+    background-color: rgba(255,192,203,0);
+    /*min-width: 100%;*/
+  }
+}
+
+.col {
+  min-width: 20%;
+  height: auto;
+}
+
+@media (min-width: 1200px) {
+  .col-xl-3.offset-xl-1 {
+    width: 292.5px;
+    max-width: 25%;
+    height: auto;
+    margin: 0px 0px 0px 97.5px;
+    padding: 0px 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-7 {
+    width: 682px;
+    max-width: 58.3%;
+    height: auto;
+    margin: 0px;
+    padding: 0px 15px;
+  }
+}
+
+.row.title {
+  /*border-top: 5px solid #342E37;*/
+}
+
+.row.boxes {
+  border-bottom: 4px solid #342E37;
+}
+
+.row.header {
+  border-bottom: 3px solid white;
+  background-color: #ffffff;
+}
+
+@media (min-width: 576px) {
+  #header-2 {
+    font-size: 2.5em;
+  }
+}
+
+@media (min-width: 1920px) {
+  .col-xl-7 {
+    min-width: 794px;
+    max-width: 41.7%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .col-xl-3.offset-xl-1 {
+    margin-left: 317px;
+  }
+}
+
+.col-xl-4 {
+  border: 5px solid #342E37;
+}
+
+.col-xl-8.offset-xl-2 {
+  display: inline-block;
+}
+
+@media (min-width: 300px) {
+  .text-center {
+    font-size: 18px;
+    color: #F7F7F7;
+  }
+}
+
+@media (min-width: 1920px) {
+  .text-center {
+    color: #F7F7F7;
+  }
+}
+
+.fa.fa-arrow-circle-right {
+  bottom: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+@media (min-width: 1200px) {
+  .description {
+    max-height: 6%;
+  }
+}
+

@@ -116,3 +116,16 @@
   }
 }
 
+.navbar.navbar-light.navbar-expand-md {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+@media (min-width: 576px) {
+  .navbar.navbar-light.navbar-expand-md {
+    position: static;
+  }
+}
+

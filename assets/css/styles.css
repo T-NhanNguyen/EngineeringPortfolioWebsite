@@ -104,3 +104,15 @@
   }
 }
 
+@media (min-width: 1368px) {
+  .description {
+    max-height: 50%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .description {
+    max-height: 8%;
+  }
+}
+

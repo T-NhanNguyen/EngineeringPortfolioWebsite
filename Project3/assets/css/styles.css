@@ -11,3 +11,11 @@
   }
 }
 
+.summary {
+  border-bottom: 2px solid rgb(86,88,91);
+}
+
+.h1, h1 {
+  border-top: 2px solid rgb(86,88,91);
+}
+

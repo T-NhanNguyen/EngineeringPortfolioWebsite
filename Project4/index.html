@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Project_4</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/css/Article-Dual-Column.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="article-dual-column">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1 offset-xl-1">
+                    <div class="intro">
+                        <h1 class="text-center">Multi-Axis Block Stacker</h1>
+                        <p class="text-center"><span class="by">by</span> <a href="#">Nhan Nguyen &amp; Andrew Kutsar</a><span class="date">Nov. 20, 2019</span></p>
+                    </div><video width="560" height="315" controls="" style="width: 100%;height: auto;"><source src="assets/inMotion.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-3 offset-md-1">
+                    <h1>Summary</h1>
+                    <p class="summaryBlock">This was a class final project for Automation at Washington State University Vancouver (WSUV) Our assignment was to program the multi-axis motion controller (Gantry machine) to dispense and stack a set of blocks in any instructed order
+                        (e.g stacking in 3x2 or 2x1 formation). It was also required that we would perform the operation without brute-forcing each given order, instead, the controller could perform the calculation of the rows by columns prompted by the
+                        user and stack the blocks accordingly. The motion of the conveyer and the solenoid on the dispenser was controlled by a PLC program, and the motion of the 3-axis arm was controlled by a motion program.<br></p>
+                </div>
+                <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0">
+                    <div class="text">
+                        <p>The laboratory systems use Geo Brick Drives by Delta Tau Data System, Inc. which only permitted teams a single entry a week. Each station has a control panel, which contains the motion controller, power supplies, I/O terminals,
+                            buttons and indicator lights. This meant that the machines are miniaturized versions of the real industrial machines. Industrial grade components such as sensors, motors, bearings, cabling, etc. were used in the designs. As
+                            such, each station contains the same industrial control panel that would be found in industry but interfaced to a miniaturized industrial machine.<br></p>
+                        <p>The biggest challenges within this project were to learn the programming language and the system's limitation. Unlike typical coding languages provide by computer science courses, this language was intended to be a higher-level
+                            language aimed towards mechanical engineers. Because no one had experience with programming PLC and given the limited lab availability, we had to learn as quickly as we could to understand start programming our project. When
+                            I and my partner understood our objected and the machine's abilities, we quickly began pseudo coding an algorithm to help us simulate the machine's operation so that it could meet the criteria.<br></p>
+                        <p class="pseudoCode"><strong><span style="text-decoration: underline;">Pseudo code</span></strong>:<br><br>upward: how<br> tall we want it (H)<br> right: how<br> wide we want it (W)<br> &nbsp;<br> Stacking:<br> Height x Width<br> &nbsp;<br> for (each<br>                            row, we start at 0 and stack to upward):<br> &nbsp;&nbsp;&nbsp; for (each column, we start at the most<br> left, and stack right):<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stack a block<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            increment<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stack until the condition is met<br> (stack up to width amount)<br> &nbsp;&nbsp;&nbsp; increment<br> &nbsp;&nbsp;&nbsp; move onto the next row and loop back<br> stack
+                            until<br> both width and height condition is met<br></p>
+                        <p>From the pseudo code, we prototype it in C with numerous print statement to get a visual representation of what our code was actually doing, compared to what we thought it was doing. The C code translated over extremely easy after
+                            we've familiarized with PLC, and all objectives and criteria were met.</p>
+                        <h2>In-depth of the process</h2>
+                        <p>While it might not be possible to operate your machine with this code, given the circumstances of different systems, I would still like to present the code.</p><iframe src="https://pastebin.com/embed_iframe/mraxMgNC" style="border:none;width:100%"></iframe>
+                        <p class="indepthBlock" style="height: auto;width: 100%;"><br>We first worked on the PLC portion of the project. PLC 1,<br>which initializes the project, was already completed, so we had to work on PLC<br>10. The first portion of PLC 10 that we had to work on was the stop state. We<br>had
+                            to complete substates 0, 3, and 4. The goal of substate 0 was to bring the<br>conveyor to a stop. This was achieved by checking to see if the conveyor, or<br>motor 4, was moving and if the latch was set to 0. Then a few parameters
+                            for<br>the motion profile of the conveyor were set, the latch was set to 1, so the<br>command wouldn’t be executed more than once, and a stop command was sent to the<br>controller to stop the conveyor. After the conveyor stops,
+                            the latch is reset<br>and the next substate is selected.<br><br>Substates 3 and 4 were very similar. The goal of the<br>substates was to stop axis y and z, respectively. This was done by mirroring<br>the code of Substate 2,
+                            where the x-axis was stopped. If the axis was still<br>moving and the latch was set to 0 then a few motion parameters for the axis<br>were set, the latch was set to 1, and the stop command was sent for that axis. Once<br>the
+                            axis came to a complete stop, then the latch was reset and the next<br>substate was selected. Once Substates 0, 3, and 4 were completed we were done<br>with the stop state.<br><br>Our next step in the project was to complete
+                            the run<br>state. This involved finishing Substates 1 and 2. Substate 1 involved feeding<br>the cube onto the conveyor and setting a timer once the block crossed the path<br>of the light sensor. First, we waited for the conveyor
+                            to get started, then we<br>extracted the arm of the solenoid to push a block out from the stack. After<br>waiting for a second, the solenoid’s arm was retracted. After the light beam<br>was broken by the block travelling down
+                            the conveyor, a three-second timer was<br>started, the latch was reset, and the next Substate was selected.<br><br>For Substate 2 of the run state, the PLC waited for the<br>timer set by Substate 1 to end then it set a few
+                            parameters for the motion<br>profile of the conveyor before sending the stop command to the conveyor’s axis.<br>After the conveyor came to a stop, the latch was reset to 0, the next Substate<br>was selected, and the P_BoxArrived
+                            was set to 1. The P_BoxVariable was used to<br>communicate between the PLC program and the motion program. When that variable<br>was set to 1, then the motion program knew that the next block was ready to be<br>picked up.<br><br>After
+                            completing the stop<br>and run states of PLC 10 we worked on the motion program that took the blocks<br>from the conveyor and stacked them in the specified arrangement on the pallet.<br>To be able to stack the blocks in any
+                            arrangement specified by the user, we<br>used an algorithm that included two for loops, one inside the other, that were<br>implemented using while loops. The outer while loop controlled the vertical<br>placement of the blocks,
+                            which correlates to the different rows. The inner while<br>loop controlled the horizontal placement of the blocks on the pallet, which<br>corresponds to the different columns of each row. This way each block in a row<br>would
+                            be placed before proceeding to the next row. The horizontal placement was<br>offset incrementally by the length of the block after each block was placed and<br>the vertical placement was offset incrementally by the height of
+                            the block<br>after each row was placed. The Pseudocode of the motion program is shown below<br></p>
+                        <figure class="figure"></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

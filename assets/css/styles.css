@@ -120,6 +120,7 @@
   position: sticky;
   top: 0;
   background-color: #ffffff;
+  text-decoration: none;
   z-index: 1;
 }
 

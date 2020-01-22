@@ -71,3 +71,11 @@
   opacity: 1;
 }
 
+.navbar-expand-md .navbar-nav {
+  text-decoration: none;
+}
+
+#navcol-1 {
+  text-decoration: none;
+}
+
